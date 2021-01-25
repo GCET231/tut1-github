@@ -136,6 +136,19 @@ Agora que tudo está bem, você poderá enviar suas mudanças para o repositóri
 
 Note que nesse tutorial você verá um erro quando tentar realizar um push, porque você não tem permissão para escrever no repositório do tutorial.
 
+### Configurando o Sublime Text como Git Mergetool
+
+Se você prefere analisar os conflitos em um editor com interface gráfica, você pode fazê-lo com poucas linhas de código. O Sublime Text é um editor de código fonte poderoso e altamente personalizável, com suporte a diversas linguagens de programação. Ele também se caracteriza por ser leve e ideal para tarefas rápidas.
+
+Para configurar o Sublime Text como editor padrão do Git Mergetool execute os comandos a seguir:
+
+````
+% git config --global mergetool.sublime.cmd "subl -w \$MERGED"
+% git config --global mergetool.sublime.trustExitCode false 
+% git config --global merge.tool sublime
+% git mergetool -y
+````
+
 ## Ignorando arquivos
 
 Arquivos que são gerados dinamicamente (e.g., código compilado ou arquivos de layout da ferramenta de síntese) não devem ser armazenados em repositórios. Mantê-los em um repositório é redundante (uma vez que eles podem ser gerados a partir de outros arquivos no repositório) e pode causar uma bagunça.

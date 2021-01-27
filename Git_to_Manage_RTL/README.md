@@ -1,6 +1,6 @@
 # Usando Git para Gerenciar Código RTL
 
->_tutorial traduzido de Brian Zimmer e Ben Keller da Berkeley University, Califórnia._
+> _tutorial traduzido de Brian Zimmer e Ben Keller da Berkeley University, Califórnia._
 
 ## Como utilizar este tutorial
 
@@ -10,11 +10,12 @@ Já existe muita informação disponível sobre Git, e as melhores fontes são l
 
 ## Recursos
 
-* [Git in 1 Hour](http://www.youtube.com/watch?v=OFkgSjRnay4): Um ótimo vídeo introdutório ao Git.
-* [Página Oficial](http://git-scm.com/documentation): tem links para todos os melhores lugares para aprender sobre Git, incluindo livros gratuitos.
-* [FAQ](https://git.wiki.kernel.org/index.php/GitFaq)
+- [Git in 1 Hour](http://www.youtube.com/watch?v=OFkgSjRnay4): Um ótimo vídeo introdutório ao Git.
+- [Página Oficial](http://git-scm.com/documentation): tem links para todos os melhores lugares para aprender sobre Git, incluindo livros gratuitos.
+- [FAQ](https://git.wiki.kernel.org/index.php/GitFaq)
 
 ## Por que usar Controle de Versão
+
 Sistemas de controle de versão realizam uma "captura" estática dos seus arquivos em um tempo específico. Isso é uma excelente forma de manter um backup de seus arquivos e facilmente visualizar como as coisas mudaram ao longo do tempo. Além disso, controle de versão permite que múltiplas pessoas trabalhem no mesmo código. A maioria dos softwares com centenas de desenvolvedores usam sistemas de controle de versão para reunir as contribuições de todos. Mesmo que haja uma curva de aprendizado, sistemas de controle de versão economizam tempo no longo prazo. Fazer cópias de arquivos para backup ou enviá-los por e-mail pode funcionar, mas o controle de versão promove formas mais simples e mais eficientes de realizar tarefas comumente realizadas.
 
 ## Por que Git?
@@ -22,6 +23,7 @@ Sistemas de controle de versão realizam uma "captura" estática dos seus arquiv
 O Git é diferente dos outros sistemas de controle de versão no fato de existir o conceitos de repositórios global e local. Em um sistema tradicional, como o Subversion, cada vez que você faz um "commit" (lembre) do estado do seu código, ele é enviado para o repositório compartilhado. O problema disso é que outras pessoas podem ver todos os seus commits. Muitas vezes o que você está fazendo irá quebrar todo o sistema. Se você realiza commits regularmente, você pode quebrar o código dos outros. Por outro lado, no Git você possui um repositório local separado. Você pode realizar quantos commits desejar, e compartilhar apenas suas mudanças com outros quando ela estiver mais madura. Isso também resulta em operações mais rápidas, uma vez que tudo está geralmente acontecendo localmente.
 
 ## Exemplo de fluxo de trabalho
+
 Nós criamos um repositório de exemplo para você experimentar. Descompacte o [arquivo]() no seu diretório raiz e em seguida execute os comandos a seguir:
 
 `% git clone ~gcet231/git/git-tut.git`
@@ -142,12 +144,12 @@ Se você prefere analisar os conflitos em um editor com interface gráfica, voc�
 
 Para configurar o Sublime Text como editor padrão do Git Mergetool execute os comandos a seguir:
 
-````
+```
 % git config --global mergetool.sublime.cmd "subl -w \$MERGED"
-% git config --global mergetool.sublime.trustExitCode false 
+% git config --global mergetool.sublime.trustExitCode false
 % git config --global merge.tool sublime
 % git mergetool -y
-````
+```
 
 ## Ignorando arquivos
 
@@ -161,7 +163,7 @@ Na raiz do diretório, execute:
 
 `% nano .gitignore`
 
-Dentro deste arquivo, nós listamos os diretórios ou arquivos que não devem ser visualizados individualmente, em cada linha. 
+Dentro deste arquivo, nós listamos os diretórios ou arquivos que não devem ser visualizados individualmente, em cada linha.
 
 ```
 build*
@@ -171,25 +173,37 @@ tmp/
 
 O comando `git status` agora não deve mais exibir o seu arquivo de registro. Note que o arquivo `.gitignore` deve ser enviado para o repositório, mas ele irá funcionar mesmo que você ainda não tenha realizado o commit.
 
+### Ignorando arquivos em todos os projetos
+
+A medida em que vocês forem desenvolvendo novos projetos notarão que muitas vezes você acaba esquecendo de adicionar algum arquivo ao seu _.gitignore_. Existe uma função no Git que pode ajudá-lo a se livrar na tediosa tarefa de criar um .gitignore com arquivos que devem ser sempre excluídos de um novo projeto.
+
+Para aprender a gerar um .gitignore global, basta seguir os passos a seguir:
+
+1. Abra o terminal e execute o comando `touch ~/.gitignore_global` -- isso irá criar um .gitigore global no seu diretório raiz.
+2. Adicione alguns nomes de arquivo ou extensões que você deseja ignorar sempre. Por exemplo, você pode usar [esse arquivo](https://github.com/GCET231/tutorial1-github/tree/main/Git_to_Manage_RTL/.gitignore).
+3. Execute `git config --global core.excludesfile ~/.gitignore_global` -- esse comando fará com que todos os padrões presentes no arquivo `~/.gitignore_global` sejam **ignorados em qualquer situação**.
+
+Você pode encontrar outras listas a serem incluídas em seu .gitignore (local ou global). Uma boa fonte está no site [http://gitignore.io/](http://gitignore.io/)
+
 ## Tópicos Avançados
 
 Existem muitos outros recursos no Git, e apenas alguns poucos foram introduzidos aqui. Alguns outros recursos que valem a pena serem aprendidos (especialmente em um repositório com múltiplas pessoas):
 
-* `git blame`: Irá exibir quem modificou cada linha em um arquivo e quando.
-* `git bisect`: Pode voltar através de revisões antigas usando uma busca binária e determinar quando uma falha for encontrada.
-* Branching: Possibilita a mudança rápida entre diferentes versões do mesmo repositório. Ótimo para realizar experimentações.
-* Plugins para editores: Editores como VIM e Emacs possuem plugins excelentes. Editores modernos, como o Visual Code Studio possuem suporte nativo ao Git. 
+- `git blame`: exibe quem modificou cada linha em um arquivo e quando.
+- `git bisect`: pode voltar através de revisões antigas usando uma busca binária e determinar quando uma falha for encontrada.
+- Branching: Possibilita a mudança rápida entre diferentes versões do mesmo repositório. Ótimo para realizar experimentações.
+- Plugins para editores: Editores como VIM e Emacs possuem plugins excelentes. Editores modernos, como o Visual Code Studio possuem suporte nativo ao Git.
 
 ## Folha de dicas
 
-Comando | Descrição
------------- | -------------
-`git clone (url)` | Faz uma cópia do repositório a partir de um servidor remoto e cria uma versão local
-`git status` | Visualiza quais arquivos foram modificados desde o último commit
-`git diff` | Visualiza o que foi modificado
-`git add (filename)` | Adiciona um arquivo para o próximo commit
-`git pull` | Atualiza o repositório local a partir do repositório remoto
-`git push` | Envia os últimos commits para o repositório remoto
-`git checkout -- (filename)` | Reverte um arquivo para a úlgima versão registrada
-`git clean -dfx (dirname)` | Reverte um diretório inteiro para seu estado no repositório remoto
-`gitk` | Visualiza graficamente o histórico de commits
+| Comando                      | Descrição                                                                           |
+| ---------------------------- | ----------------------------------------------------------------------------------- |
+| `git clone (url)`            | Faz uma cópia do repositório a partir de um servidor remoto e cria uma versão local |
+| `git status`                 | Visualiza quais arquivos foram modificados desde o último commit                    |
+| `git diff`                   | Visualiza o que foi modificado                                                      |
+| `git add (filename)`         | Adiciona um arquivo para o próximo commit                                           |
+| `git pull`                   | Atualiza o repositório local a partir do repositório remoto                         |
+| `git push`                   | Envia os últimos commits para o repositório remoto                                  |
+| `git checkout -- (filename)` | Reverte um arquivo para a úlgima versão registrada                                  |
+| `git clean -dfx (dirname)`   | Reverte um diretório inteiro para seu estado no repositório remoto                  |
+| `gitk`                       | Visualiza graficamente o histórico de commits                                       |

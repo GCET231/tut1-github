@@ -1,4 +1,4 @@
-# Comandos Básicos do Git
+# Guia de Comandos Básicos do Git
 
 - [Instalando o Git](#instalando-o-git)
 - [Configurando seu acesso ao Github](#configurando-seu-acesso-ao-github)

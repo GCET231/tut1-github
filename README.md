@@ -99,7 +99,7 @@ Para clonar um repositório, utilize o comando a seguir:
 
 Siga os passos a seguir para aprender como fazer seu primeiro registro no GitHub.
 
-![Alt Text](https://recordit.co/9Hdxy5zb2X)
+![Alt Text](https://github.com/GCET231/tutorial1-github/blob/main/img/mudancas_locais_commit.gif)
 
 ## Passo-a-passo para baixar e editar tarefas a partir do GitHub Classroom
 

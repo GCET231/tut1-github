@@ -115,7 +115,7 @@ Você pode também digitar `ls`. Esse comando lista os diretórios dentro do dir
 
 Eu posso ainda entrar em um diretório usando o comando `cd`. Se eu digitar `cd Documents`, estarei agora dentro do meu diretório Documents. Quando eu digito `pwd`, o resultado exibe `/Users/joaocarlos/Documents`. Eu posso então retornar para a pasta `/Users/joaocarlos` digitando o comando `cd ..`.
 
-![Alt Text](https://recordit.co/05lJAQeKw0)
+![Alt Text](https://github.com/GCET231/tutorial1-github/blob/main/img/comandos_diretorio.gif)
 
 Agora eu desejo criar um novo diretório. Para isso, eu posso utilizar o comando `mkdir`. Por exemplo, para criar um diretório chamado nome-da-turma (é uma boa prática não ter espaços nos nomes das suas pastas), eu posso digitar:
 

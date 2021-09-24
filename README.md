@@ -7,11 +7,11 @@
   - [Criando um repositório no GitHub](#criando-um-reposit-rio-no-github)
   - [Clonando o repositório para seu computador](#clonando-o-reposit-rio-para-seu-computador)
   - [Fazendo mudanças locais, commit e push e confirmando que as mudanças locais foram enviadas para o servidor remoto no GitHub](#fazendo-mudan-as-locais--commit-e-push-e-confirmando-que-as-mudan-as-locais-foram-enviadas-para-o-servidor-remoto-no-github)
+- [Organizando os diretórios](#organizando-os-diret-rios)
+- [Ingressando no repositório de uma tarefa do GitHub Classroom](#ingressando-no-reposit-rio-de-uma-tarefa-do-github-classroom)
+- [Gerenciando as mudanças e adicionando novos arquivos ao seu repositório local](#gerenciando-as-mudan-as-e-adicionando-novos-arquivos-ao-seu-reposit-rio-local)
+- [Atualizando o servidor remoto (GitHub)](#atualizando-o-servidor-remoto--github-)
 - [Passo-a-passo para baixar e editar tarefas a partir do GitHub Classroom](#passo-a-passo-para-baixar-e-editar-tarefas-a-partir-do-github-classroom)
-  - [Organizando os diretórios](#organizando-os-diret-rios)
-  - [Ingressando no repositório de uma tarefa do GitHub Classroom](#ingressando-no-reposit-rio-de-uma-tarefa-do-github-classroom)
-  - [Gerenciando as mudanças e adicionando novos arquivos ao seu repositório local](#gerenciando-as-mudan-as-e-adicionando-novos-arquivos-ao-seu-reposit-rio-local)
-  - [Atualizando o servidor remoto (GitHub)](#atualizando-o-servidor-remoto--github-)
 - [Recursos Adicionais](#recursos-adicionais)
 
 ## O que é Git

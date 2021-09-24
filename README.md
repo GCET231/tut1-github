@@ -105,9 +105,7 @@ Siga os passos a seguir para aprender como fazer seu primeiro registro no GitHub
 
 ![Alt Text](img/mudancas_locais_commit.gif)
 
-## Passo-a-passo para baixar e editar tarefas a partir do GitHub Classroom
-
-### Organizando os diretórios
+## Organizando os diretórios
 
 > Reserve uma pasta no seu computador (ou dispositivo de armazenamento externo) especificamente para a nossa turma (chame de algo como gcet231-2020.1). Dentro dessa pasta eu recomendo que você crie uma pasta chamada aulas, assim como as pastas para as práticas de laboratório, questionários, laboratórios e projetos.
 
@@ -158,7 +156,7 @@ Users
                |____problemas
 ```
 
-### Gerenciando as mudanças e adicionando novos arquivos ao seu repositório local
+## Gerenciando as mudanças e adicionando novos arquivos ao seu repositório local
 
 Após realizar as mudanças na sua tarefa ou projeto, realize o commit delas. O que são *commits*? Você pode estar se perguntando! Commits estão na prática tirando um retrato dos seus projetos. Por exemplo, se você fizer modificações em um código que imprime "Hello word", e então realizar o commit com uma mensagem informativa, eu serei capaz de olhar no histórico dos meus commits e visualizar o código que escrevi naquele momento. 
 
@@ -174,14 +172,13 @@ Você pode fazer um commit usando o comando:
 
 Duas coisas são importantes em relação ao processo de commit. Primeiro, você deve registrar suas alterações com um commit com alguma frequência. No mínimo, se você está implementando um roteiro de laboratório, deve fazer um commit a cada etapa concluída do roteiro. No caso de projetos mais longos, tente submeter uma modificação sempre que adicionar uma nova funcionalidade ou cumprir uma meta atribuída. Segundo, deixe mensagens de commit informativa, principalmente se estiver trabalhando em grupo. Uma mensagem do tipo _"Adicionando alguma coisa"_ não vai ajudar você a procurar por uma alteração no histórico de commits. Uma mensagem como _"Adicionada versão inicial da função hello-world"_ será muito mais útil.
 
-### Atualizando o servidor remoto no GitHub
+## Atualizando o servidor remoto no GitHub
 
 Em algum momento você deve querer que a versão atualizado da tarefa seja enviada para o GitHub, seja por que o professor ou monitor podem ajudá-lo com seu código, ou para que ele possa ser avaliado. Você pode fazer isso usando o comando `git push`. Fácil!
 
 Se estiver trabalhando em grupo, é importante garantir que o seu código esteja atualizado antes de um push. Para atualizar o seu repositório local e obter a versão mais recente do GitHub, você tem apenas que digitar o comando `git pull`. Se você receber uma mensagem de erro informando que ouve um conflito de merge, não se desespere! Isso pode acontecer se você editar um arquivo que foi modificado por um colega ou pelo seu professor (no caso dos repositórios gerenciados por ele, como os de material de aula ou de esqueleto de projeto). Os professores farão o melhor para que isso não aconteça, mas se acontecer consulte [esse tutorial](https://github.com/GCET231/tutorial1-github/tree/main/Git_to_Manage_RTL).
 
-### Ingressando no repositório de uma tarefa do GitHub Classroom
-
+## Passo-a-passo para baixar e editar tarefas a partir do GitHub Classroom
 Em algumas tarefas, nós forneceremos a você um link para as tarefas por e-mail ou através do site/LMS do curso. Isso irá acontecer para cada tarefa. Siga as instruções para configurar o repositório do seu trabalho e você então terá um repositório para enviar seu trabalho. Aqui está uma imagem que você deve visualizar após clicar no link do convite:
 
 ![Alt Text](img/individual-assignment-1.png)

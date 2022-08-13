@@ -16,9 +16,9 @@
 
 ## O que é Git
 
-O Git é um sistema de controle de versão de código robusto e completo. Sistemas de controle de versão ajudam na busca por modificações nos códigos-fonte ao longo do tempo e facilitam o compartilhamento de mudanças provenientes dos seus colaboradores. Para projetos classificados em qualquer nível de complexidade, algum mecanismo de controle de versão é uma ferramenta de grande necessidade. 
+O Git é um sistema de controle de versão de código robusto e completo. Sistemas de controle de versão ajudam na busca por modificações nos códigos-fonte ao longo do tempo e facilitam o compartilhamento de mudanças provenientes dos seus colaboradores. Para projetos classificados em qualquer nível de complexidade, algum mecanismo de controle de versão é uma ferramenta de grande necessidade.
 
-Existem diversos sistemas de controle de versão por aí, cada um com suas vantagens e desvantagens. No nosso curso usaremos o Git, um dos sistemas de controle de versão mais populares entre os desenvolvedores do planeta. 
+Existem diversos sistemas de controle de versão por aí, cada um com suas vantagens e desvantagens. No nosso curso usaremos o Git, um dos sistemas de controle de versão mais populares entre os desenvolvedores do planeta.
 
 É importante que você faça um esforço para entender como o Git funciona, pois assim você perceberá como é fácil usá-lo no cotidiano. O link a seguir apresenta uma boa visão geral e pode servir como guia de consulta rápida no futuro:
 
@@ -51,7 +51,9 @@ O Git é uma ferramenta nativa (já vem instalada junto com o sistema) em sistem
 
 Após instalar o Git em seu sistema, abra o terminal e execute o comando abaixo para garantir que tudo está dentro do esperado:
 
-` git --version`
+```bash
+git --version
+```
 
 Instruções mais detalhadas sobre a instalação no Windows podem ser encontradas [neste vídeo](https://youtu.be/F_fPEMnr1OQ) (em inglês).
 
@@ -65,17 +67,23 @@ O GitHub autentica você para acessar os seus repositórios remotos utilizando c
 
 Primeiro, certifique-se de ter o OpenSSH instalado em seu computador digitando o comando `ssh` no seu terminal. Em seguida, crie uma nova chave SSH (utilize o e-mail institucional caso esteja em um computador do laboratório):
 
-`ssh-keygen -t rsa -b 4096 -C "seu_email@ufrb.edu.br"`
+```bash
+ssh-keygen -t rsa -b 4096 -C "seu_email@ufrb.edu.br"
+```
 
 Pressione enter e use as configurações padrão. Não é necessário introduzir uma senha.
 
 Em seguida, execute o comando a seguir no terminal:
 
-`cat ~/.ssh/id_rsa.pub`
+```bash
+cat ~/.ssh/id_rsa.pub
+```
 
 No Windows você pode tentar o comando:
 
-`notepad C:\Users\WINUSER/.ssh/id_rsa.pub`
+```bash
+notepad C:\Users\WINUSER/.ssh/id_rsa.pub
+```
 
 Copie toda a chave pública que foi exibida. Acesse o endereço [https://github.com/settings/keys](https://github.com/settings/keys), clique no botão "New SSH Key", cole sua chave pública na caixa de texto (você também pode dar um nome para sua chave), e clique em "Add SSH key"
 
@@ -89,7 +97,7 @@ Se enfrentar algum problema durante o processo, pergunte ao seu professor.
 
 A seguir nós criamos um repositório e copiamos o link para que possamos baixá-lo no nosso próprio computador.
 
-![Alt Text](img/create_repo.gif)
+![Criando um repositório.](img/create_repo.gif)
 
 ### Clonando o repositório remoto para seu computador
 
@@ -97,19 +105,19 @@ Para clonar um repositório, utilize o comando a seguir:
 
 `git clone https://github.com/joaocarlos/repository-name.git`
 
-![Alt Text](img/clone_repo.gif)
+![Clonando um repositório.](img/clone_repo.gif)
 
 ### Fazendo mudanças locais, commit, push e confirmando que as mudanças locais foram enviadas para o servidor remoto no GitHub
 
 Siga os passos a seguir para aprender como fazer seu primeiro registro no GitHub.
 
-![Alt Text](img/mudancas_locais_commit.gif)
+![Commit local.](img/mudancas_locais_commit.gif)
 
 ## Organizando os diretórios
 
 > Reserve uma pasta no seu computador (ou dispositivo de armazenamento externo) especificamente para a nossa turma (chame de algo como gcet231-2020.1). Dentro dessa pasta eu recomendo que você crie uma pasta chamada aulas, assim como as pastas para as práticas de laboratório, questionários, laboratórios e projetos.
 
-Você pode fazer isso como faria normalmente apontando e clicando, mas você também pode usar o *shell* (Terminal ou CMD/PowerShell)! Essa é uma boa prática se você pensa em usar o Git fora da nossa aula, onde você normalmente precise usar Shell para interagir com o Git. 
+Você pode fazer isso como faria normalmente apontando e clicando, mas você também pode usar o _shell_ (Terminal ou CMD/PowerShell)! Essa é uma boa prática se você pensa em usar o Git fora da nossa aula, onde você normalmente precise usar Shell para interagir com o Git.
 
 O autor Sean Kross apresenta um ótimo guia para uso do shell aqui -- [https://seankross.com/the-unix-workbench/](https://seankross.com/the-unix-workbench/). Entretanto, eu irei mostrar aqui os comandos básicos que você precisa para dar os primeiros passos.
 
@@ -119,29 +127,31 @@ Você pode também digitar `ls`. Esse comando lista os diretórios dentro do dir
 
 Eu posso ainda entrar em um diretório usando o comando `cd`. Se eu digitar `cd Documents`, estarei agora dentro do meu diretório Documents. Quando eu digito `pwd`, o resultado exibe `/Users/joaocarlos/Documents`. Eu posso então retornar para a pasta `/Users/joaocarlos` digitando o comando `cd ..`.
 
-![Alt Text](img/comandos_diretorio.gif)
+![Comando para listar os diretórios.](img/comandos_diretorio.gif)
 
 Agora eu desejo criar um novo diretório. Para isso, eu posso utilizar o comando `mkdir`. Por exemplo, para criar um diretório chamado nome-da-turma (é uma boa prática não ter espaços nos nomes das suas pastas), eu posso digitar:
 
-`mkdir nome-da-turma`.
+```bash
+mkdir nome-da-turma
+```
 
 Se você digitar `ls`, agora verá que o diretório `nome-da-turma` aparecerá. Você pode digitar `cd nome-da-turma` para entrar no diretório. Finalmente, você pode criar os outros diretórios dos quais falamos digitando:
 
-```
+```bash
 mkdir aulas
 mkdir laboratorios
 ```
 
 Veja o exemplo a seguir:
 
-```
+```bash
 Users
 |
 |
 |____joaocarlos
      |
      |
-     |____documentos-ufrb
+     |____ufrb
           |
           |
           |____gcet231-circuitos-digitais-ii-2020.1
@@ -153,22 +163,26 @@ Users
                |____laboratorios
                |
                |
-               |____problemas
+               |____exercicios
 ```
 
 ## Gerenciando as mudanças e adicionando novos arquivos ao seu repositório local
 
-Após realizar as mudanças na sua tarefa ou projeto, realize o commit delas. O que são *commits*? Você pode estar se perguntando! Commits estão na prática tirando um retrato dos seus projetos. Por exemplo, se você fizer modificações em um código que imprime "Hello word", e então realizar o commit com uma mensagem informativa, eu serei capaz de olhar no histórico dos meus commits e visualizar o código que escrevi naquele momento. 
+Após realizar as mudanças na sua tarefa ou projeto, realize o commit delas. O que são _commits_? Você pode estar se perguntando! Commits estão na prática tirando um retrato dos seus projetos. Por exemplo, se você fizer modificações em um código que imprime "`Hello word`", e então realizar o _commit_ com uma mensagem informativa, eu serei capaz de olhar no histórico dos meus _commits_ e visualizar o código que escrevi naquele momento.
 
 Se eu fizer mais mudanças na função que resultem em um erro, poderia ainda retornar para o commit onde o código estava funcionando. Isso evita a necessidade de criar várias versões dos seus trabalhos (`lab0-ver1`, `lab0-ver2`, ...), ou tente lembrar de como o código era antes da mudança.
 
-Alguns editores de código já possuem integração com Git e facilitam o trabalho de adicionar novos arquivos e gerenciar os commits. Se preferir, pode ainda utilizar gerenciadores como o [GitKraken](https://www.gitkraken.com), mas recomendo que no início você prefira usar o shell para aprender os principais comandos.
+Alguns editores de código já possuem integração com Git e facilitam o trabalho de adicionar novos arquivos e gerenciar os commits. Se preferir, pode ainda utilizar gerenciadores como o [GitKraken](https://www.gitkraken.com), mas recomendo que no início você prefira usar o _shell_ para aprender os principais comandos.
+
+> 💁 Se liga! Estudantes podem solicitar acesso ao Student Development Pack do GitHub, que dá acesso gratuito a dezenas de ferramentas (incluindo a versão Pro do GitKraken).
 
 Para adicionar os arquivos ao repositório local do Git, você pode usar o comando `git add nome-do-arquivo`. O comando `git add` também é utilizado para incluir arquivos modificados em um commit. O `git add -A` faz com que o Git adicione todas as modificações desde o último commit. Entretanto, se você não quer incluir todas as mudanças ainda, poderá optar por incluir no commit apenas alguns arquivos fazendo `git add arquivo1`, por exemplo.
 
 Você pode fazer um commit usando o comando:
 
-`git commit -m "Mensagem descritiva do commit"`
+```bash
+git commit -m "Mensagem descritiva do commit"
+```
 
 Duas coisas são importantes em relação ao processo de commit. Primeiro, você deve registrar suas alterações com um commit com alguma frequência. No mínimo, se você está implementando um roteiro de laboratório, deve fazer um commit a cada etapa concluída do roteiro. No caso de projetos mais longos, tente submeter uma modificação sempre que adicionar uma nova funcionalidade ou cumprir uma meta atribuída. Segundo, deixe mensagens de commit informativa, principalmente se estiver trabalhando em grupo. Uma mensagem do tipo _"Adicionando alguma coisa"_ não vai ajudar você a procurar por uma alteração no histórico de commits. Uma mensagem como _"Adicionada versão inicial da função hello-world"_ será muito mais útil.
 
@@ -179,15 +193,16 @@ Em algum momento você deve querer que a versão atualizado da tarefa seja envia
 Se estiver trabalhando em grupo, é importante garantir que o seu código esteja atualizado antes de um push. Para atualizar o seu repositório local e obter a versão mais recente do GitHub, você tem apenas que digitar o comando `git pull`. Se você receber uma mensagem de erro informando que ouve um conflito de merge, não se desespere! Isso pode acontecer se você editar um arquivo que foi modificado por um colega ou pelo seu professor (no caso dos repositórios gerenciados por ele, como os de material de aula ou de esqueleto de projeto). Os professores farão o melhor para que isso não aconteça, mas se acontecer consulte [esse tutorial](https://github.com/GCET231/tutorial1-github/tree/main/Git_to_Manage_RTL).
 
 ## Passo-a-passo para baixar e editar tarefas a partir do GitHub Classroom
+
 Em algumas tarefas, nós forneceremos a você um link para as tarefas por e-mail ou através do site/LMS do curso. Isso irá acontecer para cada tarefa. Siga as instruções para configurar o repositório do seu trabalho e você então terá um repositório para enviar seu trabalho. Aqui está uma imagem que você deve visualizar após clicar no link do convite:
 
-![Alt Text](img/individual-assignment-1.png)
+![Ingressando em uma tarefa.](img/individual-assignment-1.png)
 
-Note que, após você aceitar uma tarefa pela primeira vez, nós iremos enviar um convite para você ingressar como membro da sala do GitHub Classroom (se isso ainda não tiver sido feito). Você deve receber um e-mail com o convite, mas também poderá ver um link no topo da sua página principal no GitHub. Por favor, aceite o convite.
+Note que, após você aceitar uma tarefa pela primeira vez, nós iremos enviar um convite para você ingressar como membro da sala do [GitHub Classroom](https://classroom.github.com) (se isso ainda não tiver sido feito). Você deve receber um e-mail com o convite, mas também poderá ver um link no topo da sua página principal no GitHub. Por favor, aceite o convite.
 
 Se a tarefa for em grupo, além de aceitar a tarefa, você deve escolher ou criar um grupo (de acordo com a política da tarefa). Certifique-se de combinar a criação dos grupos com seus colegas antes para evitar problemas.
 
-![Alt Text](img/group-assignment-1.png)
+![Especificação da tarefa.](img/group-assignment-1.png)
 
 Entre no repositório criado no GitHub (ele ainda está online -- GitHub é diferente do Git!) Clique em "Code", e garanta que esteja vendo "SSH" em negrito no topo esquerdo da caixa de pop-up box. Se não, clique na botão "SSH" no topo do lado esquerdo. Agora copie o link da caixa para a área de transferência.
 

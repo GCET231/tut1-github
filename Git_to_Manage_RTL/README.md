@@ -1,6 +1,6 @@
 # Usando Git para Gerenciar Código RTL
 
-> _tutorial traduzido de Brian Zimmer e Ben Keller da Berkeley University, Califórnia._
+> 💁 _Esse tutorial foi traduzido de Brian Zimmer e Ben Keller da Berkeley University, Califórnia._
 
 ## Como utilizar este tutorial
 
@@ -26,98 +26,130 @@ O Git é diferente dos outros sistemas de controle de versão no fato de existir
 
 Nós criamos um repositório de exemplo para você experimentar. Descompacte o [arquivo]() no seu diretório raiz e em seguida execute os comandos a seguir:
 
-`% git clone ~gcet231/git/git-tut.git`
-
-`% cd git-tut`
+```bash
+% git clone ~gcet231/git/git-tut.git
+% cd git-tut
+```
 
 Agora você criou uma cópia local do seu repositório remoto, o qual você poderá visualizar e editar. Comece criando um arquivo de exemplo. Adicione qualquer texto que você desejar nele, e sinta-se livre para substituir o nano pelo editor de usa escolha.
 
-`% nano TODO`
-`% type type type ...`
+```bash
+% nano TODO
+% type type type ...
+```
 
 Agora vamos ver o que o Git vê.
 
-`% git status`
+```bash
+% git status
+```
 
 O Git vê esse arquivo como um arquivo não rastreado (_untracked file_). Isso quer dizer que o Git está ignorando o arquivo por enquanto e não saberá sobre nenhuma mudança que aconteça nele.
 
-`% git add TODO`
+```bash
+% git add TODO
+```
 
 Agora verifique o que o Git vê executando novamente `git status`. O Git agora diz que está rastreando esse arquivo. Mas você ainda pode fazer mudanças nesse arquivo, e o Git não se lembrará o que você fez. Neste momento, o arquivo está apenas "staged". Para o Git se lembrar de como o arquivo era em um certo tempo, você precisa realizar um commit (fazer uma captura).
 
-`% git commit -m "log message"`
+```bash
+% git commit -m "log message"
+```
 
 Se você não incluir a opção `-m "log message"`, um editor de texto se abrirá. Entre com a mensagem de registro, salve, e saia, e então o commit acontecera. Você deve introduzir uma mensagem de registro para cada commit. Execute `git status` novamente para ver que o Git acredita que tudo está atualizado como esperado.
 
 Agora vamos ver como nós visualizados o histórico. Abra seu arquivo, e adicione outra linha.
 
-`% nano TODO`
-
-`% type type type ...`
+```bash
+% nano TODO
+% type type type ...
+```
 
 Para visualizar o que mudou, execute:
 
-`% git diff TODO`
+```bash
+% git diff TODO
+```
 
 Agora realize o commit dessas mudanças também:
 
-`% git add .`
-`% git commit -m "log message"`
+```bash
+% git add .
+% git commit -m "log message"
+```
 
 Onde `git add .` irá adicionar todos os arquivos no diretório. Você pode ainda usar a opção -a para realizar o commit de todas as mudanças em arquivos rastreados (isso não irá adicionar novos arquivos):
 
-`% git commit -am "log message"`
+```bash
+% git commit -am "log message"
+```
 
 Agora adicione uma nova linha, novamente:
 
-`% nano TODO`
+```bash
+% nano TODO
+```
 
 Imagine que você não gostou de suas mudanças e deseja revertê-las:
 
-`% git checkout -- TODO`
+```bash
+% git checkout -- TODO
+```
 
 O `--` existe porque o comando `git checkout branchname` abrirá um branch (um tópico mais avançado) e o `--` faz com que o Git saiba que você que realizar o checkout de um arquivo.
 
 Outro recurso bastante interessante é o fato de que você pode visualizar versões antigas de um arquivo. Imagine que uma fala foi introduzida, e você deseja visualizar uma versão anterior de um arquivo.
 
-`% git log`
+```bash
+% git log
+```
 
 Para visualizar o registro graficamente, você pode instalar um pacote chamado gitk.
 
 Perceba que próximo às palavras "commit" existe uma string de palavras e números chamados de SHA. Essa chave corresponde a um identificador única para um dado commit. Você pode encontrar ela tanto no `gitk` quanto no `git log`. Para visualizar a versão de TODO para um dado commit, cole o número abaixo (o seu poderá ser um pouco diferente).
 
-`% git show 90940d1cdbb016952db2ba368fdc4906e010a9ff:TODO`
+```bash
+% git show 90940d1cdbb016952db2ba368fdc4906e010a9ff:TODO
+```
 
 Note que depois do `:` está o caminha para o arquivo. Em geral, você não precisa da SHA completa. Além disso, se for um arquivo longo, você pode preferir abri-lo em seu editor favorito.
 
-`% git show 90940d:TODO | nano -`
+```bash
+% git show 90940d:TODO | nano -
+```
 
 Mas e se você possuir dúzias de arquivos, e deseja visualizar o estados do repositório antes de um dado commit? Usando a SHA encontrada no `git log` ou `gitk`, basta fazer um "checkout" desta revisão.
 
-`% git checkout 33c9894e13f8c3d9d4307c4b77e1a92e286d70ba`
+```bash
+% git checkout 33c9894e13f8c3d9d4307c4b77e1a92e286d70ba
+```
 
 Uma vez que você tenha finalizado e deseja retornar para o estado anterior:
 
-`% git checkout master`
+```bash
+% git checkout master
+```
 
 Certifique-se de realizar o commit antes de voltar nos históricos, do contrário você poderá perder o arquivos.
 
 Por último, se você está trabalhando com outras pessoas, você pode enviar suas mudanças (_push_) para um repositório remoto. Sempre que você quiser fazer isso, você precisa se certificar de suas coisas. Primeiro, garanta que você tenha feito o commit de todas as suas modificações locais e o seu `git status` está limpo, do contrário você pode gerar problemas. Por fim, garanta que sua cópia local está atualizada, baixando as mudanças do repositório remoto (_pull_).
 
-`% git pull origin master`
+```bash
+% git pull origin master
+```
 
 O `origin` refere-se ao repositório remoto padrão (você pode possuir vários repositórios remotos) e `master` se refere ao fato de que você deseja enviar seu código para o fluxo principal (e não para um branch). Geralmente, isso pode ser ignorado, e o `git pull` funcionará normalmente.
 
 Leia o status do pull. Se a versão remota mudou desde a última vez, ele tentará juntar as mudanças automaticamente! Geralmente, isso funciona magicamente. Por exemplo, se um novo arquivo foi adicionado, ele irá apenas baixar o arquivo. Se uma linha foi acrescentada para um arquivo que você mudou também e as linhas estão muito distantes, ambas as mudanças serão fundidas. Mas se o mesmo arquivo foi muito modificado seja remotamente ou localmente e o Git não conseguir descobrir como juntá-los, você verá um erro:
 
-```
+```bash
 CONFLICT (content): Merge conflict in README
 Automatic merge failed; fix conflicts and then commit the result.
 ```
 
 Para corrigir esse conflito, edite os arquivos que ele listou (neste caso, README). As partes do código onde o problema ocorreu estão marcadas dentro do arquivo. Por exemplo:
 
-```
+```bash
 <<<<<<<< HEAD:README
 Example empty git repository
 ========
@@ -130,11 +162,15 @@ Você pode usar uma ferramenta para fazer isso digitando `git mergetool`. Tente 
 
 Uma vez que a fusão dos arquivos foi corrigida, realize o commit das suas mudanças. Se você usou o mergetool, ele irá automaticamente ser registrado quando você sair, e um arquivo filename.orig irá manter um backup do arquivo problemático.
 
-`% git commit -m "fixed merges"`
+```bash
+% git commit -m "fixed merges"
+```
 
 Agora que tudo está bem, você poderá enviar suas mudanças para o repositório remoto.
 
-`git push origin master`
+```bash
+git push origin master
+```
 
 Note que nesse tutorial você verá um erro quando tentar realizar um push, porque você não tem permissão para escrever no repositório do tutorial.
 
@@ -144,7 +180,7 @@ Se você prefere analisar os conflitos em um editor com interface gráfica, voc�
 
 Para configurar o Sublime Text como editor padrão do Git Mergetool execute os comandos a seguir:
 
-```
+```bash
 % git config --global mergetool.sublime.cmd "subl -w \$MERGED"
 % git config --global mergetool.sublime.trustExitCode false
 % git config --global merge.tool sublime
@@ -161,11 +197,13 @@ Primeiro crie um arquivo de registro executando o comando `touch run.log`. Agora
 
 Na raiz do diretório, execute:
 
-`% nano .gitignore`
+```bash
+% nano .gitignore
+```
 
 Dentro deste arquivo, nós listamos os diretórios ou arquivos que não devem ser visualizados individualmente, em cada linha.
 
-```
+```bash
 build*
 *.log
 tmp/
